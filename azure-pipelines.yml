@@ -8,14 +8,26 @@ trigger:
 
 pool: my-personal-computer
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
 
-- script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
+jobs:
+- job: Build
+  displayName: Build
+  pool: my-personal-computer
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm install -g @angular/cli
+      npm install
+      ng build --prod
+    displayName: 'npm install and build'
+    
+  - task: Npm@1
+    inputs:
+      command: 'publish'
+      publishRegistry: 'useFeed'
+      publishFeed: 'e9a6b136-a672-461b-8516-cd5192531248'
+    displayName: Publish Angular Project
