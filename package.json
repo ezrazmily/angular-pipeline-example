@@ -22,7 +22,7 @@
     "test-ci": "ng test -c ci",
     "test": "ng test"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.2.13",
     "@angular/common": "~7.2.13",
