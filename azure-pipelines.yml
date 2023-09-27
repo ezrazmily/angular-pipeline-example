@@ -25,9 +25,6 @@ jobs:
       ng build --prod
     displayName: 'npm install and build'
     
-  - task: Npm@1
-    inputs:
-      command: 'publish'
-      publishRegistry: 'useFeed'
-      publishFeed: 'e9a6b136-a672-461b-8516-cd5192531248'
-    displayName: Publish Angular Project
+  - script: |
+      npm publish --access=public
+    displayName: Publish to public
