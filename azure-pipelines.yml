@@ -26,5 +26,6 @@ jobs:
     displayName: 'npm install and build'
     
   - script: |
+      npm config set registry http://registry.npmjs.org
       npm publish --access=public
     displayName: Publish to public
