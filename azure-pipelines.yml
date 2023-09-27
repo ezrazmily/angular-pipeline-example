@@ -36,3 +36,8 @@ jobs:
       ArtifactName: 'drop'
       publishLocation: 'Container'
     displayName: Publish Artifact
+
+- job: SAST_Scan
+  displayName: SAST Scan
+  pool: my-personal-computer
+  
