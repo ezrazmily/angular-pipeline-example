@@ -40,4 +40,8 @@ jobs:
 - job: SAST_Scan
   displayName: SAST Scan
   pool: my-personal-computer
+  steps:
+  - task: SonarQubeAnalyze@5
+    inputs:
+      jdkversion: 'JAVA_HOME_11_X64'
   
